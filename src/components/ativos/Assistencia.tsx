@@ -159,8 +159,8 @@ export const Assistencia = ({ onNavigate }: AssistenciaProps) => {
     (chamado.ativo.toLowerCase().includes(searchTerm.toLowerCase()) ||
      chamado.solicitante.toLowerCase().includes(searchTerm.toLowerCase()) ||
      chamado.descricao.toLowerCase().includes(searchTerm.toLowerCase())) &&
-    (statusFilter === "" || chamado.status === statusFilter) &&
-    (prioridadeFilter === "" || chamado.prioridade === prioridadeFilter)
+    (statusFilter === "" || statusFilter === "todos" || chamado.status === statusFilter) &&
+    (prioridadeFilter === "" || prioridadeFilter === "todas" || chamado.prioridade === prioridadeFilter)
   );
 
   return (
@@ -243,7 +243,7 @@ export const Assistencia = ({ onNavigate }: AssistenciaProps) => {
               <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Todos</SelectItem>
+              <SelectItem value="todos">Todos</SelectItem>
               <SelectItem value="aberto">Aberto</SelectItem>
               <SelectItem value="em_andamento">Em Andamento</SelectItem>
               <SelectItem value="aguardando">Aguardando</SelectItem>
@@ -256,7 +256,7 @@ export const Assistencia = ({ onNavigate }: AssistenciaProps) => {
               <SelectValue placeholder="Prioridade" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Todas</SelectItem>
+              <SelectItem value="todas">Todas</SelectItem>
               <SelectItem value="baixa">Baixa</SelectItem>
               <SelectItem value="media">Média</SelectItem>
               <SelectItem value="alta">Alta</SelectItem>

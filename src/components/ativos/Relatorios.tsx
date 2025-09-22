@@ -171,7 +171,7 @@ export const Relatorios = ({ onNavigate }: RelatoriosProps) => {
   };
 
   const filteredReports = relatorioTemplates.filter(report =>
-    filters.categoria === "" || report.categoria === filters.categoria
+    filters.categoria === "" || filters.categoria === "todas" || report.categoria === filters.categoria
   );
 
   return (
@@ -218,7 +218,7 @@ export const Relatorios = ({ onNavigate }: RelatoriosProps) => {
                   <SelectValue placeholder="Todas" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Todas as categorias</SelectItem>
+                  <SelectItem value="todas">Todas as categorias</SelectItem>
                   <SelectItem value="ativos">Ativos</SelectItem>
                   <SelectItem value="financeiro">Financeiro</SelectItem>
                   <SelectItem value="manutencao">Manutenção</SelectItem>

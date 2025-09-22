@@ -135,7 +135,7 @@ export const Historico = ({ onNavigate }: HistoricoProps) => {
     const matchesSearch = item.ativo.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          item.usuario.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesAcao = acaoFilter === "" || item.acao === acaoFilter;
+    const matchesAcao = acaoFilter === "" || acaoFilter === "todas" || item.acao === acaoFilter;
     const matchesData = dataFilter === "" || item.data.startsWith(dataFilter);
     
     return matchesSearch && matchesAcao && matchesData;
@@ -161,7 +161,7 @@ export const Historico = ({ onNavigate }: HistoricoProps) => {
             <SelectValue placeholder="Filtrar por ação" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">Todas as ações</SelectItem>
+            <SelectItem value="todas">Todas as ações</SelectItem>
             <SelectItem value="criacao">Criação</SelectItem>
             <SelectItem value="edicao">Edição</SelectItem>
             <SelectItem value="vinculacao">Vinculação</SelectItem>

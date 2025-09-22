@@ -96,7 +96,7 @@ export const Manutencao = ({ onNavigate }: ManutencaoProps) => {
 
   const filteredManutencoes = manutencoes.filter(item =>
     item.ativo.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (statusFilter === "" || item.status === statusFilter)
+    (statusFilter === "" || statusFilter === "todos" || item.status === statusFilter)
   );
 
   return (
@@ -120,7 +120,7 @@ export const Manutencao = ({ onNavigate }: ManutencaoProps) => {
               <SelectValue placeholder="Filtrar por status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Todos os status</SelectItem>
+              <SelectItem value="todos">Todos os status</SelectItem>
               <SelectItem value="agendada">Agendada</SelectItem>
               <SelectItem value="em_andamento">Em Andamento</SelectItem>
               <SelectItem value="concluida">Concluída</SelectItem>
